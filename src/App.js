@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Form from './components/Form';
+import Menu from './components/Menu';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [order, setOrder] = useState([]);
+
+    useEffect(() => {
+        console.log('order is', order);
+    }, [order])
+
+    return (
+        <div className="App-header">
+            My Food App
+
+            <Menu setOrder={setOrder} />
+            <Form order={order}/>
+
+
+
+            {/* //list of options //menu
+            //form - 
+            //choice of food
+            //submit button */}
+        </div>
+    );
 }
 
 export default App;
